@@ -1,6 +1,5 @@
 export default function DbModels() {
     return <>
-        <h1>DB Models</h1>
         <table>
             <thead>
             <tr>
@@ -11,11 +10,15 @@ export default function DbModels() {
                 <th>When to use</th>
                 <th>When not to use</th>
                 <th>Consistency Models</th>
+                <th>Availability</th>
                 <th>Scalability</th>
-                <th>Suitable for write-heavy load</th>
-                <th>Suitable for read-heavy load (complex queries)</th>
                 <th>Average Latency</th>
                 <th>Average Throughput</th>
+                <th>Suitable for write-heavy load</th>
+                <th>Suitable for update-heavy load (by id)</th>
+                <th>Suitable for bulk update-heavy load</th>
+                <th>Suitable for read-heavy load (complex queries)</th>
+                <th>Suitable for read-heavy load (by id)</th>
             </tr>
             </thead>
             <tbody>
@@ -38,286 +41,309 @@ export default function DbModels() {
                 <td>
                     <ul>
                         <li>Financial systems</li>
-                        <li>ERP (Enterprise Resource Planning) solutions</li>
-                        <li>CRM (Customer Relationship Management) platforms</li>
+                        <li>ERP solutions</li>
+                        <li>CRM platforms</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>When data integrity and consistency are critical</li>
-                        <li>For well-structured data with clear relationships</li>
-                        <li>In applications with complex query requirements</li>
+                        <li>When data integrity is critical</li>
+                        <li>Well-structured data with clear relationships</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>When handling large-scale, unstructured data</li>
-                        <li>When flexible schema or rapid data changes are needed</li>
-                        <li>For horizontal scaling across multiple nodes</li>
+                        <li>For unstructured or large-scale distributed data</li>
+                        <li>When flexible schema is needed</li>
                     </ul>
                 </td>
                 <td>Strong consistency (ACID)</td>
-                <td>Vertical scalability (limited horizontal scalability)</td>
-                <td>No</td>
-                <td>Yes</td>
                 <td>Moderate</td>
-                <td>High for read-heavy operations</td>
-            </tr>
-            <tr>
-                <td>Document Databases</td>
-                <td>
-                    <ul>
-                        <li>Flexible schema, ideal for evolving data models</li>
-                        <li>High performance for read-heavy operations</li>
-                        <li>Great for hierarchical or nested data structures</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Less efficient for complex relationships and joins</li>
-                        <li>Weaker ACID compliance compared to relational databases</li>
-                        <li>Can lead to data duplication and inconsistencies</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Content management systems</li>
-                        <li>Product catalogs</li>
-                        <li>Blog platforms</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>For applications with evolving or semi-structured data</li>
-                        <li>When using JSON-like data representation</li>
-                        <li>In web applications requiring flexible data handling</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>When strict data integrity and ACID compliance are required</li>
-                        <li>For highly interrelated data that needs frequent joins</li>
-                    </ul>
-                </td>
-                <td>Eventual or strong consistency (depending on configuration)</td>
-                <td>High horizontal scalability</td>
-                <td>Moderate</td>
-                <td>Yes</td>
-                <td>Low</td>
-                <td>High</td>
-            </tr>
-            <tr>
-                <td>Graph Databases</td>
-                <td>
-                    <ul>
-                        <li>Optimized for complex relationships and graph queries</li>
-                        <li>Highly intuitive data modeling with nodes and edges</li>
-                        <li>Excellent for traversing connections in large datasets</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Not suited for large-scale analytical queries</li>
-                        <li>Higher complexity in managing graph structures</li>
-                        <li>Can be overkill for simple data models</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Social networks</li>
-                        <li>Recommendation engines</li>
-                        <li>Fraud detection systems</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>When working with highly connected data</li>
-                        <li>For scenarios requiring fast traversal of relationships</li>
-                        <li>In applications with dynamic and interlinked data</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>For flat, tabular data or simple query requirements</li>
-                        <li>When handling large volumes of unconnected data</li>
-                    </ul>
-                </td>
-                <td>Eventual or strong consistency (based on configuration)</td>
-                <td>Horizontal scalability</td>
-                <td>No</td>
-                <td>Yes</td>
-                <td>Low</td>
-                <td>Moderate</td>
-            </tr>
-            <tr>
-                <td>Key-Value Databases</td>
-                <td>
-                    <ul>
-                        <li>Extremely fast read and write operations</li>
-                        <li>Simple and easy-to-understand data model</li>
-                        <li>Great for caching and session storage</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Lacks support for complex queries and relationships</li>
-                        <li>Limited functionality beyond simple key-value pairs</li>
-                        <li>Data retrieval is not flexible</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Session management</li>
-                        <li>Real-time data caching</li>
-                        <li>Configuration management</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>When speed is critical, like caching and real-time data</li>
-                        <li>For simple lookup scenarios with fixed keys</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>When complex querying or joins are needed</li>
-                        <li>For applications requiring data relationships</li>
-                    </ul>
-                </td>
-                <td>Eventual consistency</td>
-                <td>High horizontal scalability</td>
-                <td>Yes</td>
-                <td>No</td>
-                <td>Very low</td>
-                <td>Very high</td>
-            </tr>
-            <tr>
-                <td>Vector Databases</td>
-                <td>
-                    <ul>
-                        <li>Specialized for high-dimensional data handling</li>
-                        <li>Efficient for similarity searches and machine learning</li>
-                        <li>Supports complex AI/ML operations like nearest neighbor search</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Limited support for traditional queries and data operations</li>
-                        <li>Not ideal for relational or structured data tasks</li>
-                        <li>Requires specific AI/ML knowledge to set up and optimize</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Recommendation systems</li>
-                        <li>Image and text similarity search</li>
-                        <li>Natural language processing (NLP) applications</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>For tasks involving similarity search in high-dimensional data</li>
-                        <li>When working with AI/ML model vector outputs</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>When handling standard relational data</li>
-                        <li>For applications requiring complex joins or transactional operations</li>
-                    </ul>
-                </td>
-                <td>Eventual consistency</td>
-                <td>Moderate scalability</td>
-                <td>No</td>
-                <td>Yes</td>
+                <td>Vertical</td>
                 <td>Moderate</td>
                 <td>High</td>
-            </tr>
-            <tr>
-                <td>Wide-Column Databases</td>
-                <td>
-                    <ul>
-                        <li>Highly scalable for big data applications</li>
-                        <li>Efficient storage and retrieval of sparse data</li>
-                        <li>Schema flexibility with dynamic columns</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Complex queries require more effort compared to relational databases</li>
-                        <li>Data modeling can be challenging for highly interconnected data</li>
-                        <li>Not ideal for transactional data</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>Time-series data</li>
-                        <li>IoT data management</li>
-                        <li>Analytics on large-scale datasets</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>For write-heavy workloads with high scalability requirements</li>
-                        <li>When dealing with semi-structured data that can vary between records</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <li>For applications that require complex joins and relational data</li>
-                        <li>When strict ACID compliance is necessary</li>
-                    </ul>
-                </td>
-                <td>Eventual consistency</td>
-                <td>High horizontal scalability</td>
-                <td>Yes</td>
                 <td>No</td>
-                <td>Low</td>
-                <td>Very high</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+                <td>Yes</td>
+                <td>Yes</td>
             </tr>
             <tr>
                 <td>Columnar Databases</td>
                 <td>
                     <ul>
-                        <li>Highly efficient for read-heavy analytical queries</li>
-                        <li>Optimized for data compression and faster query performance</li>
-                        <li>Excellent for aggregating and scanning large datasets</li>
+                        <li>Efficient for read-heavy analytical queries</li>
+                        <li>Optimized for data compression</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>Not suitable for transactional workloads</li>
-                        <li>Less efficient for write-heavy operations</li>
-                        <li>Complex queries requiring multiple row operations can be slower</li>
+                        <li>Less suitable for transactional workloads</li>
+                        <li>Slow for write-heavy operations</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li>Data warehousing</li>
-                        <li>Business intelligence (BI) and reporting</li>
-                        <li>Analytical processing (OLAP) workloads</li>
+                        <li>Business intelligence</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>When performing analytical queries on large datasets</li>
-                        <li>For scenarios that require high-speed data aggregation</li>
-                        <li>In business intelligence and data warehousing environments</li>
+                        <li>Analytical queries on large datasets</li>
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        <li>For real-time transaction processing (OLTP)</li>
-                        <li>When frequent, individual row-level updates are required</li>
-                        <li>In applications with high write-to-read ratios</li>
+                        <li>Real-time transaction processing</li>
                     </ul>
                 </td>
-                <td>Strong consistency (ACID-like properties in some cases)</td>
-                <td>Moderate scalability (usually vertical)</td>
+                <td>Eventual consistency</td>
+                <td>High</td>
+                <td>Moderate</td>
+                <td>Low</td>
+                <td>High</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+            </tr>
+            <tr>
+                <td>Wide-Column Databases</td>
+                <td>
+                    <ul>
+                        <li>Highly scalable for big data</li>
+                        <li>Schema flexibility</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complex queries require effort</li>
+                        <li>Not ideal for transactional data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>IoT data management</li>
+                        <li>Time-series data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>For write-heavy workloads</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complex joins</li>
+                    </ul>
+                </td>
+                <td>Eventual consistency</td>
+                <td>High</td>
+                <td>Horizontal</td>
+                <td>Low</td>
+                <td>Very high</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+                <td>No</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Document Databases</td>
+                <td>
+                    <ul>
+                        <li>Flexible schema</li>
+                        <li>Good for hierarchical data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Less efficient for joins</li>
+                        <li>Weaker ACID compliance</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Content management</li>
+                        <li>Product catalogs</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Evolving data models</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Strict ACID compliance</li>
+                    </ul>
+                </td>
+                <td>Eventual or strong consistency</td>
+                <td>High</td>
+                <td>Horizontal</td>
+                <td>Moderate</td>
+                <td>High</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Key/Value Databases</td>
+                <td>
+                    <ul>
+                        <li>Very fast read and write</li>
+                        <li>Simple data model</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Lacks complex query support</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Session management</li>
+                        <li>Caching</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>When speed is critical</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complex queries</li>
+                    </ul>
+                </td>
+                <td>Eventual consistency</td>
+                <td>High</td>
+                <td>Horizontal</td>
+                <td>Very low</td>
+                <td>Very high</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+                <td>No</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Graph Databases</td>
+                <td>
+                    <ul>
+                        <li>Optimized for relationships</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complexity in large datasets</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Social networks</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Connected data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Simple queries</li>
+                    </ul>
+                </td>
+                <td>Eventual or strong consistency</td>
+                <td>Moderate</td>
+                <td>Horizontal</td>
+                <td>Low</td>
+                <td>Moderate</td>
                 <td>No</td>
                 <td>Yes</td>
                 <td>Low</td>
+                <td>Yes</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Vector Databases</td>
+                <td>
+                    <ul>
+                        <li>Efficient for similarity searches</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Limited traditional query support</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Machine learning</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>High-dimensional data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Relational data</li>
+                    </ul>
+                </td>
+                <td>Eventual consistency</td>
                 <td>High</td>
+                <td>Horizontal</td>
+                <td>Moderate</td>
+                <td>High</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Moderate</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Event Databases</td>
+                <td>
+                    <ul>
+                        <li>Real-time event handling</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Complex state management</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>IoT systems</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Streaming data</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Transactional data</li>
+                    </ul>
+                </td>
+                <td>Eventual consistency</td>
+                <td>High</td>
+                <td>Horizontal</td>
+                <td>Low</td>
+                <td>Very high</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+                <td>Yes</td>
             </tr>
             </tbody>
         </table>

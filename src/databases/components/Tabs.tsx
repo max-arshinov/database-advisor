@@ -72,9 +72,9 @@ type VerticalTabProps = {
 };
 
 function VerticalTab(props: VerticalTabProps) {
-    return <Tab style={tabStyle} label={<Tooltip title={props.tooltip}>
+    return <Tab style={tabStyle} label={<Tooltip title={props.tooltip} {...a11yProps(props.index)}>
         <span>{props.label}</span>
-    </Tooltip>} {...a11yProps(props.index)} />
+    </Tooltip>} />
 }
 
 export default function VerticalTabs() {
