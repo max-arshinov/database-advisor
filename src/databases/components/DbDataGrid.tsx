@@ -157,5 +157,36 @@ export default function DbDataGrid() {
             }}
             autoPageSize
         />
+        
+        <h3>Search Algorithm</h3>
+        <ol>
+            <li>
+                <strong>Apply Yes/No filters</strong>
+                <ol>
+                    <li>Free / Commercial </li>
+                    <li>
+                        Prioritize Cloud Native
+                        <ul>
+                            <li>Azure: Cosmos DB &gt; MongoDB</li>
+                            <li>AWS: Document DB &gt; MongoDB</li>
+                            <li>BigTable, BigQuery for GCP, Etc...</li>
+                            <li>Multi-cloud: check which dbs have managed version in all 3 clouds</li>
+                        </ul>
+                    </li>
+                    <li>
+                        PACElC: Consistency/Latency, Consistency/Availability
+                    </li>
+                    <li>Supported features</li>
+                </ol>
+            </li>
+            <li>
+                <strong>Score</strong>
+                <li>Write Heavy &rightarr; DB Size 1TB &rightarr; need shards</li>
+                <li>Durable/In-memory VS Latency</li>
+                <li>Availability &rightarr; Replicas | 99.999% &rightarr; Cross DC &rightarr; Cassandra/Cosmos/Dynamo</li>
+                <li>Tradeoffs: Single/multi-thread,...</li>
+                <li>Quality Attributes</li>
+            </li>
+        </ol>
     </Box>);
 }
