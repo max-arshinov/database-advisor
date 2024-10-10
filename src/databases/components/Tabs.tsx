@@ -9,6 +9,8 @@ import {FormGroup} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UseCases from "@/databases/components/tabs/UseCases";
 import QualityAttributes from "@/databases/components/QualityAttributes";
+import Consistency from "@/databases/components/tabs/Consistency";
+import Data from "@/databases/components/tabs/Data";
 
 interface TabPanelProps {
     label: string;
@@ -23,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
     return (
         <div
             role="tabpanel"
-            style={{width: '100%'}}
+            style={{width: '600px'}}
             hidden={value !== index}
             id={`vertical-tabpanel-${index}`}
             aria-labelledby={`vertical-tab-${index}`}
@@ -74,26 +76,30 @@ export default function VerticalTabs() {
                 aria-label="Vertical tabs example"
                 sx={{borderRight: 1, borderColor: 'divider'}}
             >
-                <Tab style={tabStyle} label="Primary Info" {...a11yProps(0)} />
-                <Tab style={tabStyle} label="Load Profile" {...a11yProps(1)} />
-                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(2)} />
-                <Tab style={tabStyle} label="Features" {...a11yProps(3)} />
-                <Tab style={tabStyle} label="DB Models" {...a11yProps(4)} />
+                <Tab style={tabStyle} label="Data" {...a11yProps(0)} />
+                <Tab style={tabStyle} label="Constraints" {...a11yProps(1)} />
+                <Tab style={tabStyle} label="Consistency" {...a11yProps(2)} />
+                <Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />
+                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(4)} />
+                <Tab style={tabStyle} label="Features" {...a11yProps(5)} />
             </Tabs>
-            <TabPanel label="Primary Info" value={value} index={0}>
+            <TabPanel label="Data" value={value} index={0}>
+                <Data/>
+            </TabPanel>
+            <TabPanel label="Constraints" value={value} index={1}>
                 <Constraints/>
             </TabPanel>
-            <TabPanel label="Load Profile" value={value} index={1}>
+            <TabPanel label="Consistency" value={value} index={2}>
+                <Consistency/>
+            </TabPanel>
+            <TabPanel label="Load Profile" value={value} index={3}>
                 <UseCases/>
             </TabPanel>
-            <TabPanel label="Quality Attributes" value={value} index={2}>
+            <TabPanel label="Quality Attributes" value={value} index={4}>
                 <QualityAttributes/>
             </TabPanel>
-            <TabPanel label="Features" value={value} index={3}>
+            <TabPanel label="Features" value={value} index={5}>
                 <Features/>
-            </TabPanel>
-            <TabPanel label="DB Models" value={value} index={4}>
-                <DbModel/>
             </TabPanel>
         </Box>
     );

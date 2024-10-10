@@ -16,6 +16,15 @@ export enum DbModels {
     Spatial = 'Spatial',
     Vector = 'Vector',
 }
+
+export enum DataStructures {
+    Structured = 'Structured',
+    SemiStructuredDefinedSchema = 'Semi-Structured with Defined Schema',
+    SemiStructuredFlexibleSchema ='Semi-Structured Databases with Flexible Schema',
+    Unstructured = 'Unstructured',
+    Graph = 'Graph',
+    Vector = 'Vector'
+}
     
 export type SecondaryModelSupport = {
     type: DbModels,

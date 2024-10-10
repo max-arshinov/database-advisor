@@ -11,15 +11,15 @@ const checkboxRenderer = (params: GridRenderCellParams) =>
 const secondaryModelRenderer = (params: GridRenderCellParams) =>
     <div>
         {params.value?.length > 0 ? (params.value as SecondaryModelSupport[])
-        .map(x => x.type + '')
-        .reduce((c,n) => c  + ', ' + n) : ''}
+            .map(x => x.type + '')
+            .reduce((c, n) => c + ', ' + n) : ''}
     </div>
 
 const stringArrayRenderer = (params: GridRenderCellParams) =>
     <div>
         {params.value?.length > 0 ? (params.value as string[])
             .map(x => x + '')
-            .reduce((c,n) => c  + ', ' + n) : ''}
+            .reduce((c, n) => c + ', ' + n) : ''}
     </div>
 
 const columns: GridColDef<(typeof allDbs)[number]>[] = [
@@ -30,7 +30,7 @@ const columns: GridColDef<(typeof allDbs)[number]>[] = [
     {
         field: 'score',
         headerName: 'Score'
-    },    
+    },
     {
         field: 'model',
         headerName: 'Primary Model',
@@ -157,13 +157,13 @@ export default function DbDataGrid() {
             }}
             autoPageSize
         />
-        
+
         <h3>Search Algorithm</h3>
         <ol>
             <li>
                 <strong>Apply Yes/No filters</strong>
                 <ol>
-                    <li>Free / Commercial </li>
+                    <li>Free / Commercial</li>
                     <li>
                         Prioritize Cloud Native
                         <ul>
@@ -181,11 +181,14 @@ export default function DbDataGrid() {
             </li>
             <li>
                 <strong>Score</strong>
-                <li>Write Heavy &rightarr; DB Size 1TB &rightarr; need shards</li>
-                <li>Durable/In-memory VS Latency</li>
-                <li>Availability &rightarr; Replicas | 99.999% &rightarr; Cross DC &rightarr; Cassandra/Cosmos/Dynamo</li>
-                <li>Tradeoffs: Single/multi-thread,...</li>
-                <li>Quality Attributes</li>
+                <ol>
+                    <li>Data Structure/Data type &rarr; DB Model</li>
+                    <li>Write Heavy &rarr; DB Size 1TB &rarr; need shards</li>
+                    <li>Durable/In-memory VS Latency</li>
+                    <li>Availability &rarr; Replicas | 99.999% &rarr; Cross DC &rarr; Cassandra/Cosmos/Dynamo</li>
+                    <li>Tradeoffs: Single/multi-thread,...</li>
+                    <li>Quality Attributes</li>
+                </ol>
             </li>
         </ol>
     </Box>);
