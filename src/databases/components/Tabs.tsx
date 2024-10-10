@@ -5,12 +5,13 @@ import Box from '@mui/material/Box';
 import Constraints from "./tabs/Constraints";
 import DbModel from "./tabs/db-model/DbModel";
 import Features from "./Features";
-import {FormGroup} from "@mui/material";
+import {FormGroup, Tooltip} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UseCases from "@/databases/components/tabs/UseCases";
 import QualityAttributes from "@/databases/components/QualityAttributes";
 import Consistency from "@/databases/components/tabs/Consistency";
 import Data from "@/databases/components/tabs/Data";
+import DataTypeTooltip from "@/databases/components/tooltips/DataTypeTooltip";
 
 interface TabPanelProps {
     label: string;
@@ -56,6 +57,26 @@ function a11yProps(index: number) {
     };
 }
 
+const Data2 = function():React.ReactNode {
+    return <Tooltip title="123">
+        <span>Data</span>
+    </Tooltip>;
+}
+
+const tabStyle: React.CSSProperties = {alignItems: 'flex-end', textAlign: 'right'};
+
+type VerticalTabProps = {
+    index: number,
+    label: string,
+    tooltip?: React.ReactNode,
+};
+
+function VerticalTab(props: VerticalTabProps) {
+    return <Tab style={tabStyle} label={<Tooltip title={props.tooltip}>
+        <span>{props.label}</span>
+    </Tooltip>} {...a11yProps(props.index)} />
+}
+
 export default function VerticalTabs() {
     const [value, setValue] = React.useState(0);
 
@@ -63,9 +84,9 @@ export default function VerticalTabs() {
         setValue(newValue);
     };
 
-    const tabStyle: React.CSSProperties = {alignItems: 'flex-end', textAlign: 'right'};
     const tabPanelStyle: React.CSSProperties = {width: '100%'};
-
+  
+    
     return (
         <Box sx={{flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 400}}>
             <Tabs
@@ -76,7 +97,7 @@ export default function VerticalTabs() {
                 aria-label="Vertical tabs example"
                 sx={{borderRight: 1, borderColor: 'divider'}}
             >
-                <Tab style={tabStyle} label="Data" {...a11yProps(0)} />
+                <VerticalTab label="Data" tooltip={DataTypeTooltip()} index={0} />
                 <Tab style={tabStyle} label="Constraints" {...a11yProps(1)} />
                 <Tab style={tabStyle} label="Consistency" {...a11yProps(2)} />
                 <Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />

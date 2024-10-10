@@ -4,6 +4,7 @@ import allDbs from "../domain/all-dbs";
 import {Database, IDatabase, SecondaryModelSupport} from "../domain/types";
 import {Checkbox} from "@mui/material";
 import Box from "@mui/material/Box";
+import DbModels from "@/databases/components/DbModels";
 
 const checkboxRenderer = (params: GridRenderCellParams) =>
     (<Checkbox checked={params.value} disabled={true}/>)
@@ -191,5 +192,6 @@ export default function DbDataGrid() {
                 </ol>
             </li>
         </ol>
+        <DbModels/>
     </Box>);
 }
