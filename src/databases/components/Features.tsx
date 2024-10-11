@@ -8,7 +8,6 @@ import Checkbox from "@/shared/components/Checkbox";
 
 export default function Features() {
     return <>
-        <Dropdown multiple={true} options={getEnumValues(QueryLanguages)} label="Query Language" />
         {/*<Dropdown multiple={true} options={getEnumValues(QueryLanguages)} label="Supported APIs" />*/}
         <Dropdown multiple={true} options={[]} label="Transactions" />
         <Dropdown multiple={true} options={[]} label="Partitioning Model" />

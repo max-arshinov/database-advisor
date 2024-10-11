@@ -8,7 +8,7 @@ import {
     DataStructures,
     HostingOptions,
     Licenses,
-    PricingModels
+    PricingModels, QueryLanguages
 } from "@/databases/domain/types";
 import Checkbox from "@/shared/components/Checkbox";
 import HeaderWithTooltip from "@/shared/components/HeaderWithTooltip";
@@ -33,5 +33,7 @@ export default function PrimaryInfo() {
         <Dropdown multiple={true} options={getEnumValues(PricingModels)} label="Pricing Model"/>
         
         <h3>Supported APIs</h3>
+        <Dropdown multiple={true} options={getEnumValues(QueryLanguages)} label="Query Language" />
+
     </>;
 }

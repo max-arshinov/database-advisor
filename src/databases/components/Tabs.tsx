@@ -3,15 +3,17 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Constraints from "./tabs/Constraints";
-import DbModel from "./tabs/db-model/DbModel";
 import Features from "./Features";
-import {FormGroup, Tooltip} from "@mui/material";
+import {Tooltip} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UseCases from "@/databases/components/tabs/UseCases";
 import QualityAttributes from "@/databases/components/QualityAttributes";
 import Consistency from "@/databases/components/tabs/Consistency";
 import Data from "@/databases/components/tabs/Data";
-import DataTypeTooltip from "@/databases/components/tooltips/DataTypeTooltip";
+import DataTooltip from "@/databases/components/tooltips/DataTooltip";
+import ConstraintsTooltip from "@/databases/components/tooltips/ConstraintsTooltip";
+import DataTypeTooltip from "@/databases/components/tooltips/ConsistencyTooltip";
+import ConsistencyTooltip from "@/databases/components/tooltips/ConsistencyTooltip";
 
 interface TabPanelProps {
     label: string;
@@ -80,7 +82,7 @@ function VerticalTab(props: VerticalTabProps) {
 }
 
 function getLabel(text: string, tooltip: React.ReactNode) {
-    return <Tooltip title={tooltip} placement="right">
+    return <Tooltip title={tooltip} placement="left">
         <span>{text}</span>
     </Tooltip>
 }
@@ -105,12 +107,12 @@ export default function VerticalTabs() {
                 sx={{borderRight: 1, borderColor: 'divider'}}
             >
                 {/*<VerticalTab label="Data" tooltip={DataTypeTooltip()} index={0} />*/}
-                <Tab style={tabStyle} label={getLabel('Data', DataTypeTooltip)} {...a11yProps(0)} />
-                <Tab style={tabStyle} label="Constraints" {...a11yProps(1)} />
-                <Tab style={tabStyle} label="Consistency" {...a11yProps(2)} />
-                <Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />
-                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(4)} />
-                <Tab style={tabStyle} label="Features" {...a11yProps(5)} />
+                <Tab style={tabStyle} label={getLabel('Data', DataTooltip)} {...a11yProps(0)} />
+                <Tab style={tabStyle} label={getLabel('Constraints', ConstraintsTooltip)} {...a11yProps(1)} />
+                <Tab style={tabStyle} label={getLabel('Consistency', ConsistencyTooltip)} {...a11yProps(2)} />
+                {/*<Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />*/}
+                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(3)} />
+                <Tab style={tabStyle} label="Features" {...a11yProps(4)} />
             </Tabs>
             <TabPanel label="Data" value={value} index={0}>
                 <Data/>
@@ -121,13 +123,13 @@ export default function VerticalTabs() {
             <TabPanel label="Consistency" value={value} index={2}>
                 <Consistency/>
             </TabPanel>
-            <TabPanel label="Load Profile" value={value} index={3}>
-                <UseCases/>
-            </TabPanel>
-            <TabPanel label="Quality Attributes" value={value} index={4}>
+            {/*<TabPanel label="Load Profile" value={value} index={3}>*/}
+            {/*    <UseCases/>*/}
+            {/*</TabPanel>*/}
+            <TabPanel label="Quality Attributes" value={value} index={3}>
                 <QualityAttributes/>
             </TabPanel>
-            <TabPanel label="Features" value={value} index={5}>
+            <TabPanel label="Features" value={value} index={4}>
                 <Features/>
             </TabPanel>
         </Box>
