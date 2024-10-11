@@ -128,10 +128,12 @@ export enum QueryLanguages {
     Gremlin = 'Gremlin',
 }
 
-export enum FeatureType {
-    Transactions = 'Transactions',
-}
-
-type IFeature = {
-    get name(): string;
+export enum Replications {
+    LeaderFollowerSync = 'Leader/Follower aka Master/Slave Synchronous',
+    LeaderFollowerAsync = 'Leader/Follower aka Master/Slave Asynchronous',
+    MultiLeaderSync = 'Multi-Leader aka Multi-Master Synchronous',
+    MultiLeaderAsync = 'Multi-Leader aka Multi-Master Asynchronous',
+    Leaderless = 'Leaderless',
+    ShardingWithReplication = 'Sharding with Replication',
+    Consesnsus = 'Consesus'
 }

@@ -3,7 +3,7 @@ import WideColumn from "@/databases/domain/wide-column/WideColumn";
 
 const HBase:Database = {
     ...WideColumn,
-    name: "Cassandra",
+    name: "HBase",
     hostingOptions: AllHostingOptions,
     licenses: [],
 }

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import {FormGroup} from "@mui/material";
 import Dropdown from "@/shared/components/Dropdown";
 import {getEnumValues} from "@/shared/domain/helpers";
-import {Licenses, QueryLanguages} from "@/databases/domain/types";
+import {Licenses, QueryLanguages, Replications} from "@/databases/domain/types";
 import * as React from "react";
 import Checkbox from "@/shared/components/Checkbox";
 
@@ -11,7 +11,7 @@ export default function Features() {
         {/*<Dropdown multiple={true} options={getEnumValues(QueryLanguages)} label="Supported APIs" />*/}
         <Dropdown multiple={true} options={[]} label="Transactions" />
         <Dropdown multiple={true} options={[]} label="Partitioning Model" />
-        <Dropdown multiple={true} options={[]} label="Replication Model" />
+        <Dropdown multiple={true} options={getEnumValues(Replications)} label="Replication Model" />
 
         {/*<Checkbox label="Linear Scalability" />*/}
         <Checkbox label="Primary Indexes" />
@@ -24,6 +24,7 @@ export default function Features() {
         <Checkbox label="Bulk operations" />
         <Checkbox label="Server-side scripting" />
         <Checkbox label="Embeddable" />
+        <Checkbox label="Automatic failover" />
     </>;
     
     return (<FormGroup>

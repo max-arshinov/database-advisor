@@ -160,6 +160,7 @@ export default function DbDataGrid() {
         />
 
         <h3>Search Algorithm</h3>
+        {allDbs.map(x => x.name).reduce((c,n) => c + ', ' + n)}
         <ol>
             <li>
                 <strong>Apply Yes/No filters</strong>
