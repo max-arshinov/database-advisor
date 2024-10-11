@@ -24,6 +24,7 @@ export default function Features() {
         <Checkbox label="Full-text search" />
         <Checkbox label="Bulk operations" />
         <Checkbox label="Server-side scripting" />
+        <Checkbox label="Embeddable" />
     </>;
     
     return (<FormGroup>

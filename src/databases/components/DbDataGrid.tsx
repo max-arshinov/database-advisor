@@ -12,7 +12,7 @@ const checkboxRenderer = (params: GridRenderCellParams) =>
 const secondaryModelRenderer = (params: GridRenderCellParams) =>
     <div>
         {params.value?.length > 0 ? (params.value as SecondaryModelSupport[])
-            .map(x => x.type + '')
+            .map(x => x.model + '')
             .reduce((c, n) => c + ', ' + n) : ''}
     </div>
 
@@ -33,7 +33,7 @@ const columns: GridColDef<(typeof allDbs)[number]>[] = [
         headerName: 'Score'
     },
     {
-        field: 'model',
+        field: 'primaryModel',
         headerName: 'Primary Model',
     },
     {
@@ -73,14 +73,14 @@ const columns: GridColDef<(typeof allDbs)[number]>[] = [
         renderCell: stringArrayRenderer
     },
     {
-        field: 'license',
-        headerName: 'License',
-        width: 80
+        field: 'licenses',
+        headerName: 'Licenses',
+        width: 90,
     },
     {
         field: 'hostingOptions',
         headerName: 'Hosting',
-        renderCell: stringArrayRenderer
+        // renderCell: stringArrayRenderer
     },
     {
         field: 'indexes',
@@ -147,7 +147,7 @@ const sx = {
 export default function DbDataGrid() {
     const [databases, setDatabases] = React.useState<Database[]>(allDbs);
 
-    return (<Box sx={{height: 400, width: '100%', margin: 'auto'}}>
+    return (<Box sx={{height: 700, width: '100%', margin: 'auto'}}>
         <DataGrid
             sx={sx}
             getRowHeight={() => 'auto'}

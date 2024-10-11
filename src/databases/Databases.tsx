@@ -83,9 +83,10 @@ const DrawerHeader = styled('div')(({theme}) => ({
     justifyContent: 'flex-start',
 }));
 
+const isOpen = false;
 export default function Databases() {
     const theme = useTheme();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(isOpen);
 
     const handleDrawerOpen = () => {
         setOpen(true);

@@ -1,11 +1,11 @@
 import {AllHostingOptions, Database} from "@/databases/domain/types";
 import WideColumn from "@/databases/domain/wide-column/WideColumn";
 
-const Cassandra:Database = {
+const HBase:Database = {
     ...WideColumn,
     name: "Cassandra",
-    hostingOptions: AllHostingOptions, 
-    licenses: [], 
+    hostingOptions: AllHostingOptions,
+    licenses: [],
 }
 
-export default Cassandra;
+export default HBase;

@@ -58,7 +58,12 @@ const databaseData: DatabaseInfo[] = [
     },
 ];
 
-export default function DataTypeTooltip() {
+const DataTypeTooltip = <>Data structure has the most impact on the database choice because it defines
+    the primary DB model (relational, columnar, wide-column, document, graph, vector).</>
+
+export default DataTypeTooltip;
+    
+function Tmp() {
     return <>Data structure has the most impact on the database choice because it defines
         the primary DB model (relational, columnar, wide-column, document, graph, vector).</>
     

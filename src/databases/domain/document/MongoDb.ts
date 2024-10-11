@@ -6,7 +6,7 @@ const MongoDb: Database = {
     name: 'MongoDb',
     hostingOptions: AllHostingOptions,
     licenses: [],
-    consistencyModels: [ConsistencyModels.ImmediateConsistency, ConsistencyModels.EventualConsistency],
+    consistencyModels: [ConsistencyModels.Immediate, ConsistencyModels.Eventual],
     description: 'One of the most popular document stores available both as a fully managed cloud service and for deployment on self-managed infrastructure.'
 }
 

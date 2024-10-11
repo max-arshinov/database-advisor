@@ -72,9 +72,17 @@ type VerticalTabProps = {
 };
 
 function VerticalTab(props: VerticalTabProps) {
-    return <Tab style={tabStyle} label={<Tooltip title={props.tooltip} {...a11yProps(props.index)}>
+    const label= (<Tooltip title={props.tooltip}>
         <span>{props.label}</span>
-    </Tooltip>} />
+    </Tooltip>);
+    
+    return <Tab style={tabStyle} label={props.label} {...a11yProps(props.index)}/>
+}
+
+function getLabel(text: string, tooltip: React.ReactNode) {
+    return <Tooltip title={tooltip} placement="right">
+        <span>{text}</span>
+    </Tooltip>
 }
 
 export default function VerticalTabs() {
@@ -86,8 +94,7 @@ export default function VerticalTabs() {
 
     const tabPanelStyle: React.CSSProperties = {width: '100%'};
   
-    
-    return (
+        return (
         <Box sx={{flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 400}}>
             <Tabs
                 orientation="vertical"
@@ -97,7 +104,8 @@ export default function VerticalTabs() {
                 aria-label="Vertical tabs example"
                 sx={{borderRight: 1, borderColor: 'divider'}}
             >
-                <VerticalTab label="Data" tooltip={DataTypeTooltip()} index={0} />
+                {/*<VerticalTab label="Data" tooltip={DataTypeTooltip()} index={0} />*/}
+                <Tab style={tabStyle} label={getLabel('Data', DataTypeTooltip)} {...a11yProps(0)} />
                 <Tab style={tabStyle} label="Constraints" {...a11yProps(1)} />
                 <Tab style={tabStyle} label="Consistency" {...a11yProps(2)} />
                 <Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />

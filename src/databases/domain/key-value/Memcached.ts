@@ -1,10 +1,10 @@
 import {Database} from "../types";
 import KeyValue from "@/databases/domain/key-value/KeyValue";
 
-const Redis: Database = {
+const Memcached: Database = {
     ...KeyValue,
-    name: 'Redis',
+    name: 'Memcached',
     hostingOptions: []
 }
 
-export default Redis;
+export default Memcached;

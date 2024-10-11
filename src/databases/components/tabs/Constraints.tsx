@@ -31,5 +31,7 @@ export default function PrimaryInfo() {
         <Dropdown multiple={true} options={getEnumValues(HostingOptions)} label="Hosting Options"/>
         <Checkbox label="Prioritize Managed Cloud Services"/>
         <Dropdown multiple={true} options={getEnumValues(PricingModels)} label="Pricing Model"/>
+        
+        <h3>Supported APIs</h3>
     </>;
 }

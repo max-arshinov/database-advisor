@@ -15,6 +15,7 @@ export enum DbModels {
     TimeSeries = 'Time Series',
     Spatial = 'Spatial',
     Vector = 'Vector',
+    MultiModel = 'Multi-Model',
 }
 
 export enum DataStructures {
@@ -27,7 +28,7 @@ export enum DataStructures {
 }
     
 export type SecondaryModelSupport = {
-    type: DbModels,
+    model: DbModels,
     support: SupportType,
     comment?: string
 }
@@ -62,6 +63,7 @@ export type Database = Engine & {
     consistencyModels: ConsistencyModels[],
     licenses: Licenses[],
     hostingOptions: HostingOptions[],
+    throughput?: {}
 }
 
 export enum CA {
@@ -110,8 +112,9 @@ export const AllHostingOptions = [
 ];
 
 export enum ConsistencyModels {
-    ImmediateConsistency = 'Immediate Consistency',
-    EventualConsistency = 'Eventual Consistency',
+    ACID = 'ACID',
+    Immediate = 'Immediate',
+    Eventual = 'Eventual',
 }
 
 export enum QueryLanguages {

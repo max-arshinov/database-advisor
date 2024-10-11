@@ -11,23 +11,24 @@ import RelationalDatabase from "./RelationalDatabase";
 const PgSql: Database = {
     ...RelationalDatabase,
     name: 'PostgreSQL',
+    description: 'Widely-used open source RDBMS.',
     secondaryModels: [
         {
-            type: DbModels.Document,
+            model: DbModels.Document,
             support: SupportType.Supported
         },
         {
-            type: DbModels.Graph,
+            model: DbModels.Graph,
             // TODO: check
             support: SupportType.PartialSupport
         },
         {
-            type: DbModels.Spatial,
+            model: DbModels.Spatial,
             // TODO: check
             support: SupportType.PartialSupport
         },
         {
-            type: DbModels.Vector,
+            model: DbModels.Vector,
             // TODO: check
             support: SupportType.PartialSupport
         }
@@ -45,7 +46,7 @@ export class Citus implements IExtension {
     get models(): SecondaryModelSupport[] {
         return [
             {
-                type: DbModels.Columnar,
+                model: DbModels.Columnar,
                 support: SupportType.PartialSupport
             }
         ];
