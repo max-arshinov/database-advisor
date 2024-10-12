@@ -13,6 +13,8 @@ export default function UseCases () {
     return <>
         <Dropdown multiple={true} options={getEnumValues(OltpOlap)} label="OLTP/OLAP" />
 
+        RPS = Rows Per Second
+        
         <Grid container spacing={2}>
             <Grid size={2}>
                 Insert
@@ -21,8 +23,7 @@ export default function UseCases () {
                 <Dropdown small options={getEnumValues(RPS)} label="RPS" />
             </Grid>
             <Grid size={6}>
-                <Dropdown small options={getEnumValues(RPS)} value={RPS.OneTen} label="RPS batch" />
-                <Field label="Batch size" style={fieldStyle} />            
+                <Checkbox label="Batch Processing" />
             </Grid>
 
             <Grid size={2}>
@@ -43,28 +44,22 @@ export default function UseCases () {
             </Grid>
 
             <Grid size={4}>
-                <Dropdown small options={getEnumValues(RPS)} value={RPS.OneTen} label="RPS by Id" />
+                <Dropdown small options={getEnumValues(RPS)} value={RPS.OneTen} label="RPS" />
             </Grid>
 
             <Grid size={6}>
-                <Dropdown small options={getEnumValues(RPS)} value={RPS.OneTen} label="RPS batch" />
-                <Field label="Batch size" style={fieldStyle} />
+                <Checkbox label="Batch Processing" />
             </Grid>
 
             <Grid size={2}>
                 Delete
             </Grid>
             <Grid size={4}>
-                <Dropdown options={getEnumValues(RPS)} value={RPS.LessThan1} label="RPS by Id" />
+                <Dropdown small options={getEnumValues(RPS)} value={RPS.LessThan1} label="RPS" />
             </Grid>
             <Grid size={6}>
-                <Dropdown small options={getEnumValues(RPS)} value={RPS.OneTen} label="RPS batch" />
-                <Field label="Batch size" style={fieldStyle} />
+                <Checkbox label="Batch Processing" />
             </Grid>
         </Grid>
-        
-        <Typography variant="h5" gutterBottom>DB Size</Typography>
-        <Field label="Initial Value" />
-        <Field label="In 5 years" />
     </>
 }

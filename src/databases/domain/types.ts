@@ -112,7 +112,6 @@ export const AllHostingOptions = [
 ];
 
 export enum ConsistencyModels {
-    ACID = 'ACID',
     Immediate = 'Immediate',
     Eventual = 'Eventual',
 }
@@ -126,6 +125,43 @@ export enum QueryLanguages {
     CQL = 'CQL',
     DynamoDB = 'DynamoDB',
     Gremlin = 'Gremlin',
+}
+
+export enum Latencies {
+    SingleDigit = '<10ms',
+    TwoDigit = '10ms-99ms',
+    More = '>=100ms',
+}
+
+export enum Scalability {
+    Vertical = 'Vertical',
+    Horizontal = 'Horizontal',
+    HorizontalLinear = 'Linear Horizontal'
+}
+
+export enum Availability {
+    ThreeNines = '<=99.9%',
+    FourNines = '99.99%',
+    FiveNines = '>=99.999%'
+}
+
+export enum Maintainability {
+    ManagedService = 'Managed Service',
+    SafeDefaults = 'Safe Defaults',
+    RequiresTuning = 'Requires Tuning'
+}
+
+export enum Interoperability {
+    Kafka = 'Kafka',
+    Kinesis = 'Kinesis',
+    Debezium = 'Debezium',
+}
+
+export enum Transactions {
+    AtomicOperations = 'Atomic Operations',
+    MultiACID = 'Multi-Row/Document ACID',
+    SingleACID = 'Single-Row/Document ACID',
+    Paxos = 'PAXOS Light-Weight Transactions',
 }
 
 export enum Replications {

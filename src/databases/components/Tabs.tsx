@@ -110,9 +110,9 @@ export default function VerticalTabs() {
                 <Tab style={tabStyle} label={getLabel('Data', DataTooltip)} {...a11yProps(0)} />
                 <Tab style={tabStyle} label={getLabel('Constraints', ConstraintsTooltip)} {...a11yProps(1)} />
                 <Tab style={tabStyle} label={getLabel('Consistency', ConsistencyTooltip)} {...a11yProps(2)} />
-                {/*<Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />*/}
-                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(3)} />
-                <Tab style={tabStyle} label="Features" {...a11yProps(4)} />
+                <Tab style={tabStyle} label="Load Profile" {...a11yProps(3)} />
+                <Tab style={tabStyle} label="Quality Attributes" {...a11yProps(4)} />
+                <Tab style={tabStyle} label="Features" {...a11yProps(5)} />
             </Tabs>
             <TabPanel label="Data" value={value} index={0}>
                 <Data/>
@@ -123,13 +123,13 @@ export default function VerticalTabs() {
             <TabPanel label="Consistency" value={value} index={2}>
                 <Consistency/>
             </TabPanel>
-            {/*<TabPanel label="Load Profile" value={value} index={3}>*/}
-            {/*    <UseCases/>*/}
-            {/*</TabPanel>*/}
-            <TabPanel label="Quality Attributes" value={value} index={3}>
+            <TabPanel label="Load Profile" value={value} index={3}>
+                <UseCases/>
+            </TabPanel>
+            <TabPanel label="Quality Attributes" value={value} index={4}>
                 <QualityAttributes/>
             </TabPanel>
-            <TabPanel label="Features" value={value} index={4}>
+            <TabPanel label="Features" value={value} index={5}>
                 <Features/>
             </TabPanel>
         </Box>
