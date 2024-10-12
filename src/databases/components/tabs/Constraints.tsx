@@ -30,10 +30,11 @@ export default function PrimaryInfo() {
         <Dropdown multiple={true} options={getEnumValues(Licenses)} label="License (free or paid)"/>
         <Dropdown multiple={true} options={getEnumValues(HostingOptions)} label="Hosting Options"/>
         <Checkbox label="Prioritize Managed Cloud Services"/>
+        <Checkbox label="Prioritize Cost-Efficient Options"/>
         <Dropdown multiple={true} options={getEnumValues(PricingModels)} label="Pricing Model"/>
-        
+
         <h3>Supported APIs</h3>
-        <Dropdown multiple={true} options={getEnumValues(QueryLanguages)} label="Query Language" />
+        <Dropdown multiple={true} options={[]} label="API" />
 
     </>;
 }

@@ -16,7 +16,7 @@ export default function Features() {
         {/*<Checkbox label="Linear Scalability" />*/}
         <Checkbox label="Primary Indexes" />
         <Checkbox label="Secondary Indexes" />
-
+        <Checkbox label="TTL" />
         <Checkbox label="Cross-DC" />
         <Checkbox label="CDC/Streaming" />
         <Checkbox label="Map/Reduce" />

@@ -7,17 +7,23 @@ import Field from "@/shared/components/Field";
 
 export default function Data() {
     return <>
-        <Dropdown multiple options={getEnumValues(DataStructures)} label="Data Structure" />
+        <Dropdown multiple options={getEnumValues(DataStructures)} value={["Structured"]} label="Data Structure" />
+        
+        <Typography variant="h5">Unit (Row/Document) Size</Typography>
+        <Field label="Mean Unit Size (KB)" value="5" />
+        <Field label="Max Unit Size (KB)" value="8" />
 
+        <Typography variant="h5">DB Size</Typography>
         <Field label="DB Size (GB)" value="100" />
-
-        <Dropdown multiple options={[
-            'Financial',
-            'JSON',
-            'XML',
-            'IP',
-            'Spatial',
-            'Time Series'
-        ]} label="Supported Data Types" />
+        <Field label="DB Size Growth per Month (GB)" value="5" />
+        
+        {/*<Dropdown multiple options={[*/}
+        {/*    'Financial',*/}
+        {/*    'JSON',*/}
+        {/*    'XML',*/}
+        {/*    'IP',*/}
+        {/*    'Spatial',*/}
+        {/*    'Time Series'*/}
+        {/*]} label="Supported Data Types" />*/}
     </>;
 }
