@@ -1,114 +1,121 @@
 export enum SupportType {
-    NotSupported = 'Not Supported',
-    PartialSupport = 'Partial Support',
-    Supported = 'Supported',
+  NotSupported = 'Not Supported',
+  PartialSupport = 'Partial Support',
+  Supported = 'Supported',
 }
 
 export enum DbModels {
-    Relational = 'Relational',
-    Columnar = 'Columnar',
-    Document = 'Document',
-    KeyValue = 'Key-Value',
-    SearchEngine = 'Search Engine',
-    Graph = 'Graph',
-    WideColumn = 'Wide Column',
-    TimeSeries = 'Time Series',
-    Spatial = 'Spatial',
-    Vector = 'Vector',
-    MultiModel = 'Multi-Model',
+  Relational = 'Relational',
+  Columnar = 'Columnar',
+  Document = 'Document',
+  KeyValue = 'Key-Value',
+  SearchEngine = 'Search Engine',
+  Graph = 'Graph',
+  WideColumn = 'Wide Column',
+  TimeSeries = 'Time Series',
+  Spatial = 'Spatial',
+  Vector = 'Vector',
+  MultiModel = 'Multi-Model',
 }
 
 export enum DataStructures {
-    Structured = 'Structured',
-    SemiStructuredDefinedSchema = 'Semi-Structured with Defined Schema',
-    SemiStructuredFlexibleSchema ='Semi-Structured Databases with Flexible Schema',
-    Unstructured = 'Unstructured',
-    Graph = 'Graph',
-    Vector = 'Vector'
-}
-    
-export type SecondaryModelSupport = {
-    model: DbModels,
-    support: SupportType,
-    comment?: string
+  Structured = 'Structured',
+  SemiStructuredDefinedSchema = 'Semi-Structured with Defined Schema',
+  SemiStructuredFlexibleSchema = 'Semi-Structured Databases with Flexible Schema',
+  Unstructured = 'Unstructured',
+  Graph = 'Graph',
+  Vector = 'Vector',
 }
 
+export enum SupportedDataTypes {
+  Financial = 'Financial',
+  JSON = 'JSON',
+  XML = 'XML',
+  IP = 'IP',
+  Spatial = 'Spatial',
+  TimeSeries = 'Time Series',
+}
+
+export type SecondaryModelSupport = {
+  model: DbModels;
+  support: SupportType;
+  comment?: string;
+};
+
 export interface IExtension {
-    get name(): string;
-    get models(): SecondaryModelSupport[];
-    get description(): string;
+  get name(): string;
+  get models(): SecondaryModelSupport[];
+  get description(): string;
 }
 
 export interface IDatabase {
-    get name(): string;
-    get model(): DbModels;
-    get description(): string;
-    get isCommercial(): boolean;
-    get secondaryModels(): SecondaryModelSupport[];
-    get consistencyModels(): ConsistencyModels[];
+  get name(): string;
+  get model(): DbModels;
+  get description(): string;
+  get isCommercial(): boolean;
+  get secondaryModels(): SecondaryModelSupport[];
+  get consistencyModels(): ConsistencyModels[];
 }
 
 type Engine = {
-    name: string,
-    secondaryModels?: SecondaryModelSupport[]
-    description?: string 
-}
+  name: string;
+  secondaryModels?: SecondaryModelSupport[];
+  description?: string;
+};
 
-export type Extension = Engine & {
-   
-}
+export type Extension = Engine & {};
 
 export type Database = Engine & {
-    primaryModel: DbModels,
-    consistencyModels: ConsistencyModels[],
-    licenses: Licenses[],
-    hostingOptions: HostingOptions[],
-    throughput?: {}
-}
+  primaryModel: DbModels;
+  consistencyModels: ConsistencyModels[];
+  licenses: Licenses[];
+  hostingOptions: HostingOptions[];
+  throughput?: {};
+};
 
 export enum CA {
-    Consistency = 'Consistency',
-    Availability = 'Availability',
+  Consistency = 'Consistency',
+  Availability = 'Availability',
 }
 
 export enum CL {
-    Consistency = 'Consistency',
-    Latency = 'Latency',
+  Consistency = 'Consistency',
+  Latency = 'Latency',
 }
 
 export enum Licenses {
-    Free = 'Free',
-    Commercial = 'Commercial',
+  Free = 'Free',
+  Commercial = 'Commercial',
 }
 
 export enum OltpOlap {
-    Oltp = 'OLTP',
-    Olap = 'OLAP',
+  Oltp = 'OLTP',
+  Olap = 'OLAP',
 }
 
 export enum RPS {
-    LessThan1 = '<1',
-    OneTen = '1-10'
+  LessThan1 = '<1',
+  OneTen = '1-10',
 }
 
 export enum HostingOptions {
-    OnPrem = 'On-Prem',
-    AWS = 'AWS',
-    Azure = 'Azure',
-    GCP = 'GCP',
-    Other = 'Other',
+  OnPrem = 'On-Prem',
+  AWS = 'AWS',
+  Azure = 'Azure',
+  GCP = 'GCP',
+  Other = 'Other',
 }
 
 export enum PricingModels {
-    Any = 'Any'
+  Any = 'Any',
 }
 
 export const AllHostingOptions = [
-    HostingOptions.OnPrem,
-    HostingOptions.AWS,
-    HostingOptions.Azure,
-    HostingOptions.GCP,
-    HostingOptions.Other,
+  HostingOptions.OnPrem,
+  HostingOptions.AWS,
+  HostingOptions.Azure,
+  HostingOptions.GCP,
+  HostingOptions.Other,
 ];
 
 export enum ConsistencyModels {
@@ -117,14 +124,14 @@ export enum ConsistencyModels {
 }
 
 export enum QueryLanguages {
-    SQL = 'SQL',
-    PSQL = 'P-SQL',
-    MySQL = 'MySQL',
-    SQLike = 'SQLike',
-    MongoDB = 'MongoDB',
-    CQL = 'CQL',
-    DynamoDB = 'DynamoDB',
-    Gremlin = 'Gremlin',
+  SQL = 'SQL',
+  PSQL = 'P-SQL',
+  MySQL = 'MySQL',
+  SQLike = 'SQLike',
+  MongoDB = 'MongoDB',
+  CQL = 'CQL',
+  DynamoDB = 'DynamoDB',
+  Gremlin = 'Gremlin',
 }
 
 export enum Latencies {
@@ -165,11 +172,11 @@ export enum Transactions {
 }
 
 export enum Replications {
-    LeaderFollowerSync = 'Leader/Follower aka Master/Slave Synchronous',
-    LeaderFollowerAsync = 'Leader/Follower aka Master/Slave Asynchronous',
-    MultiLeaderSync = 'Multi-Leader aka Multi-Master Synchronous',
-    MultiLeaderAsync = 'Multi-Leader aka Multi-Master Asynchronous',
-    Leaderless = 'Leaderless',
-    ShardingWithReplication = 'Sharding with Replication',
-    Consesnsus = 'Consesus'
+  LeaderFollowerSync = 'Leader/Follower aka Master/Slave Synchronous',
+  LeaderFollowerAsync = 'Leader/Follower aka Master/Slave Asynchronous',
+  MultiLeaderSync = 'Multi-Leader aka Multi-Master Synchronous',
+  MultiLeaderAsync = 'Multi-Leader aka Multi-Master Asynchronous',
+  Leaderless = 'Leaderless',
+  ShardingWithReplication = 'Sharding with Replication',
+  Consesnsus = 'Consesus',
 }

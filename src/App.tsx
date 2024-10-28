@@ -1,17 +1,11 @@
-import React from 'react';
-import Databases from "./databases/Databases";
-import {Provider} from "react-redux";
-import store from "@/store";
+import Databases from './databases/Databases';
 
 function App() {
-    return (
-        <Provider store={store}>
-            <div className="App">
-
-                <Databases/>
-            </div>
-        </Provider>
-    );
+  return (
+    <div className='App'>
+      <Databases />
+    </div>
+  );
 }
 
 export default App;
