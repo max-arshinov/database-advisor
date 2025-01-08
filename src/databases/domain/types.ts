@@ -1,3 +1,5 @@
+import {UseCase} from "@/databases/domain/use-cases";
+
 export enum SupportType {
   NotSupported = 'Not Supported',
   PartialSupport = 'Partial Support',
@@ -66,12 +68,13 @@ type Engine = {
 export type Extension = Engine & {};
 
 export type Database = Engine & {
-  primaryModel: DbModels;
-  consistencyModels: ConsistencyModels[];
-  licenses: Licenses[];
-  hostingOptions: HostingOptions[];
-  throughput?: {};
-};
+    primaryModel: DbModels,
+    consistencyModels: ConsistencyModels[],
+    licenses: Licenses[],
+    hostingOptions: HostingOptions[],
+    throughput?: {},
+    useCases?: UseCase[]
+}
 
 export enum CA {
   Consistency = 'Consistency',
